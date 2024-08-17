@@ -48,7 +48,6 @@ class Dropout:
     return []
 
 class Conv2d:
-  # I think this will work, but
   def __init__(self, in_channels, out_channels, kernal_size, stride = 1, padding = 0, bias = True):
     self.weight = torch.randn((out_channels, in_channels, kernal_size, kernal_size), generator=g) / (kernal_size*kernal_size*in_channels)**0.5
     self.bias = torch.zeros((1, out_channels, 1, 1) if bias else None)
@@ -92,8 +91,8 @@ parameters = [p for layer in layers for p in layer.parameters()]
 for p in parameters:
   p.requires_grad = True
 lb = 1e-3
-# so this is the better dataset which I got rid of the intervals
-# L2 reg is a good idea
+
+
 from sklearn.metrics import accuracy_score
 for i in range(200):
   ix = torch.randint(0, Xtr.shape[0], (200,), generator=g)
