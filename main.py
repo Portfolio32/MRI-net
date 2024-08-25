@@ -1,6 +1,6 @@
 
 import torch, torch.nn.functional as F, torchvision, torchvision.transforms as T, copy
-dataset = torch.load(r"C:\Users\joeyh\OneDrive\Desktop\Motionclassifier\BETTERDATASETV2")
+dataset = torch.load()
 Xtr,Ytr, XVal, YVal, Xtest, Ytest = dataset
 
 Xtrain, Ytrain = copy.deepcopy(Xtr), copy.deepcopy(Ytr)
